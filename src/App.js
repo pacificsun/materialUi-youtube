@@ -1,12 +1,30 @@
-import { Button } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { Button, Typography } from "@material-ui/core";
+import { ThemeProvider, makeStyles } from "@material-ui/core/styles";
 import theme from "./theme";
 
+const useStyles = makeStyles({
+  helloThereStyle: {
+    fontStyle: "oblique",
+    color: "red",
+    fontSize: "30px",
+  },
+
+  buttonStyles: {
+    color: "green",
+  },
+});
+
 function App() {
+  const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <Button>Click Me</Button>
+      <div>
+        <Typography className={classes.helloThereStyle} variant="h1">
+          Hello There
+        </Typography>
+        <Button className={classes.buttonStyles} variant="outlined">
+          Click Me
+        </Button>
       </div>
     </ThemeProvider>
   );
