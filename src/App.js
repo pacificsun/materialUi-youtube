@@ -1,32 +1,21 @@
-import { Button, Typography } from "@material-ui/core";
-import { ThemeProvider, makeStyles } from "@material-ui/core/styles";
-import theme from "./theme";
-
-const useStyles = makeStyles({
-  helloThereStyle: {
-    fontStyle: "oblique",
-    color: "red",
-    fontSize: "30px",
-  },
-
-  buttonStyles: {
-    color: "green",
-  },
-});
+import { Grid } from "@material-ui/core";
+import Header from "./Header";
+import Content from "./Content";
 
 function App() {
-  const classes = useStyles();
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <Typography className={classes.helloThereStyle} variant="h1">
-          Hello There
-        </Typography>
-        <Button className={classes.buttonStyles} variant="outlined">
-          Click Me
-        </Button>
-      </div>
-    </ThemeProvider>
+    <Grid container direction="column">
+      <Grid item>
+        <Header />
+      </Grid>
+      <Grid item container>
+        <Grid item xs={false} sm={2} />
+        <Grid item xs={12} sm={8}>
+          <Content />
+        </Grid>
+        <Grid item xs={false} sm={2} />
+      </Grid>
+    </Grid>
   );
 }
 
